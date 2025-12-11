@@ -6,7 +6,7 @@
 /*   By: samarkar <samarkar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 20:09:27 by samarkar          #+#    #+#             */
-/*   Updated: 2025/12/12 00:09:48 by samarkar         ###   ########lyon.fr   */
+/*   Updated: 2025/12/12 00:39:10 by samarkar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= FD_SIZE)
 		return (NULL);
 	stash[fd] = find_line(stash[fd], fd);
+	if (!stash)
+		return (NULL);
 	line = extract_line(stash[fd]);
 	if (!line)
 	{
